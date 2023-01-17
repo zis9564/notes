@@ -12,5 +12,3 @@
 
 **delete the latest version of schema-registry<br/>**
 `curl -X DELETE http://localhost:8081/subjects/Kafka-value/versions/latest`
-
-**
