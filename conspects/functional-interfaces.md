@@ -37,5 +37,5 @@
 
 
 - **Comparators:**\
-  ``Comparator<Person> comp = (Person o1, Person o2) -> o1.name.compareTo(o2.name);``
+  ``Comparator<Person> comp = (Person o1, Person o2) -> o1.name.compareTo(o2.name);``\
   принимают один аргумент, сравнивают входящие аргументы.
