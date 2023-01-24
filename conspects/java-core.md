@@ -8,6 +8,7 @@
 [Multithreading](multithreding.md)\
 [Transactions](transactions.md)\
 [Kafka RabbitMQ](rabbitMQ.md)\
+[Kafka transactional coordinator](../kafka/kafka-transactional-coordintor.md)\
 [Patterns](../patterns/patterns.md)\
 [SQL](../SQL-examples.sql)
 
