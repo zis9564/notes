@@ -6,7 +6,8 @@
 [Клонирование](сlonning.md)\
 [Collections](collections.md)\
 [Multithreading](multithreding.md)\
-[Transactions](transactions.md)\
+[Spring](spring.md)\
+[Hibernate](hibernate.md)\
 [Kafka RabbitMQ](rabbitMQ.md)\
 [Kafka transactional coordinator](../kafka/kafka-transactional-coordintor.md)\
 [Patterns](../patterns/patterns.md)\
