@@ -1,14 +1,28 @@
 
-**Spring security**
+**Spring security:**\
+это набор фильтров сервлетов соединенных в цепочку (filter chain).\
+Spring Security имеет фильтр **Delegating-Filter-Proxy**. Он передает запрос на внутренние фильтры Spring security. (добавляется автоматически)\
 
-**Основные компоненты:**\
+**Аутентификация** — это проверка пользователя на то, является ли он тем, кем себя выдает.\
+**authentication filter** - отвечает за аутентификацию.\
+под капотом у него интерфейс **AuthenticationManager** через **AuthenticationProvider** и **UserDetailsService**\
+проверяет креды и возврящает **Principal** или бросает исключение.\
+Если креды корректны, **Principal** сохраняется в thread local и ассоциируется с текущей HTTP сессией.\
+Это позволяет методам в текущем треде получить инормацию о **Principal** и не проходить процесс аутентиикации в рамках текущей сессии.\
 
-**SecurityContextHolder** - содержит информация о текущем контексте безопасности. Использует **ThreadLocal** для хранения информации о пользователе(**Principal**). Это позволяет методам в том-же потоке получать эту информацию.\
+**Авторизация** — это выдача прав. Происходит уже после того, как пользователь подтвердил  свою идентичность.
+
+
+**Стратегия хранения Principal:**\
+**SecurityContextHolder** - содержит информация о текущем контексте безопасности. Использует **ThreadLocal** для хранения информации о пользователе.\
 Стратегию хранения можно изменить используя статический метод **.setStrategyName(String strategy)**.
 - THREAD_LOCAL - (default) позволяет методам в том-же потоке получать Principal.
 - MODE_GLOBAL - (для автономного приложения) все потоки приложения используют один контекст безопасности
 - INHERITABLE_THREAD_LOCAL - потоки порожденные безопасным потоком наследуют контекст безопасности
 
+---
+
+**Основные компоненты:**\
 **SecurityContext** - содержит объект **Authentication** и если необходимо, информацию системы безопасности связанную с запросом.\
 **Authentication** - представляет пользователя (**Principal**) с точки зрения Spring Security.\
 **GrantedAuthority** - содержит роли пользователя. (ROLE_USER, ROLE_ADMIN).\
@@ -16,8 +30,7 @@
 UserDetails содержит имя, пароль, флаги: isAccountNonExpired, isAccountNonLocked, isCredentialsNonExpired, isEnabled и роли пользователя.\
 **UserDetailsService** - используется чтобы создать UserDetails путем реализации единственного метода этого интерфейса.
 
-**Аутентификация:**\
-1 логин и пароль объединяются в **UsernamePasswordAuthenticationToken**(имплементирует Authentication) после чего он передается экземпляру AuthenticationManager для проверки.\
-2 AuthenticationManager при несоответствие имени/пароля -> **BadCredentialsException**. при успехе -> полностью заполненный Authentication.\
-3 Передаем заполненный Authentication в SecurityContextHolder.getContext().setAuthentication(…).
+---
 
+**Конигурация:**\
+чтобы сконигурировать цепоку фильтров в Spring security, нужно создать конфигурационный класс **@Configuration**, аннотированный **@EnableWebSecurity** и наследующий **Web-Security-Configure-Adapter**.
