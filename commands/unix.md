@@ -1,143 +1,356 @@
-**sudo** позволяет выполнять задачи, требующие прав администратора или root.\
-- **-k** инвалидирует файл метки времени.\
-- **-g** запускает команды от указанного имени группы или id\
-- **-h** runs commands on the host\
+`clear` очистить экрана терминала.\
+`Tab` автозаполнить ввод команды.\
+`Ctrl+C` завершить выполняемую команды.\
+`Ctrl+Z` приостановить рабочую команду.\
+`Ctrl+S` временно заморозить терминал.\
+`Ctrl+Q` отменить зависание терминала.\
+`Ctrl+A` переход к началу строки.\
+`Ctrl+E` переход к концу строки.\
+`;` разделить нескольких команд в одной строке.\
+`&&` разрешить выполнение следующей команды только в случае если предыдущая выполнена успешно.\
 
 ---
 
-**pwd** покажет путь к текущей директории\
-- **-L** выводит содержимое env переменной включая символические ссылки.\
-- **-P** печатает фактический путь к текущему каталогу.\
+### sudo 
+позволяет выполнять задачи, требующие прав администратора или root.
+
+`-k` инвалидирует файл метки времени.\
+`-g` запускает команды от указанного имени группы или id\
+`-h` runs commands on the host
 
 ---
 
-**cd** перемещаться по файлам и каталогам\
-- **-cd ~[username]** goes to another user’s home directory.\
-- **-cd ..** moves one directory up.\
-- **-cd-** moves to your previous directory.\
+### pwd 
+покажет путь к текущей директории.
+
+`-L` выводит содержимое env переменной включая символические ссылки.\
+`-P` печатает фактический путь к текущему каталогу.
 
 ---
 
-**ls** (command) lists files and directories within a system\
-- **-R** lists all the files in the subdirectories.\
-- **-a** shows hidden files in addition to the visible ones.\
-- **-lh** shows the file sizes in easily readable formats, such as MB, GB, and TB.\
+### cd 
+перемещаться по файлам и каталогам.
+
+`-cd ~[username]` переходит в домашний каталог другого пользователя.\
+`-cd ..` перемещает один каталог вверх.\
+`-cd-` перемещается в ваш предыдущий каталог.
 
 ---
 
-**cat** (file) lists, combines, and writes file content to the standard output.\
-   cat > file creates a new file.\
-   cat file1 file2 > file3 merges file1 & file2 stores the output in file3\
-   cat file displays content in reverse order.\
+### ls 
+распечатает список файлов и каталогов в системе.
 
+`-R` рекурсивно перечисляет все файлы в подкаталогах.\
+`-a` показывает скрытые файлы в дополнение к видимым.\
+`-lh` показывает размеры файлов в легко читаемых форматах, таких как MB, GB и TB
 
-cp (command) to copy files or directories and their content\
-   cp file /home/username/Documents copy one file from the current directory to another\
-   cp f1 f2 f3 /home/username/Documents copy files to a directory\
-   cp f1 f2 copy the content of a file to a new file in the same directory\
-   cp -R /abs/path/from /abs/path/to copy an entire directory\
+---
 
+### cat 
+распечатывает содержимое файла в стандартный вывод.
 
-mv (command) move and rename files and directories\
-   mv f /abs/path moves f to the directory /abs/path\
-   mv old_name new_name\
+`cat > file` создаст новый файл.\
+`cat file1 file2 > file3` объединяет файл1 и файл2, сохраняет вывод в файл3\
+`tac file1` распечатывает содержимое файла в обратном порядке.
 
+---
 
-mkdir (command) create one or multiple directories at once and set permissions for each of them\
-   mkdir dirname\
-   mkdir Music/Songs make directories recursively\
-   -p create a directory between two existing folders. (mkdir -p path/to/dir will make the new “to” directory.)\
-   -m sets the file permissions. to create a directory with full permissions for all users, mkdir -m777 dir_name.\
-   -v prints a message for each created directory.\
+### cp 
+копирует файлы или каталоги и их содержимое.
 
-rmdir (command) permanently delete an empty directory\
-   rmdir -p dir/subdir removes an empty "subdir" and main folder "dir"\
+`cp file /home/username/Documents` скопирует один файл из текущего каталога в другой\
+`cp f1 f2 f3 /home/username/Documents` скопирует файлы в каталог\
+`cp f1 f2` скопирует содержимое файла **f1** в новый файл **f2** в том же каталоге\
+`cp -R /abs/path/from /abs/path/to` скопирует целую директорию
 
+---
 
-rm (command) is used to delete files within a directory\
-   rm filename1 filename2 filename3\
-   -i prompts system confirmation before deleting a file.\
-   -f allows the system to remove without a confirmation.\
-   -r deletes files and directories recursively.\
+### mv 
+переместить или переименовать файлы и каталоги.
 
-touch (command) to create an empty file or generate and modify a timestamp in the Linux command line\
-   touch /path/to/file.txt\
+`mv f /abs/path` переместит **f** в директорию **/abs/path**\
+`mv old_name new_name` переименует файл **old_name** в **new_name**
 
-locate (command) find a file in the database system\
-   locate -i school*not\
-   -i turn off case sensitivity\
-   * look for content that contains two or more words\
+---
 
-find (command) search for files within a specific directory and perform subsequent operations\
-   find [option] [path] [expression]\
-   find -name filename.txt\
-   find ./ -type d -name dirname\
+### mkdir 
+создать один или несколько каталогов одновременно и установить права доступа для каждого из них.
 
-grep (command) lets you find a word by searching through all the texts in a specific file\
-   grep blue notepad.txt\
+`mkdir dirname` создаст директорию **dirname** в текущем каталоге\
+`mkdir Music/Songs`создаст директории рекурсивно\
+`-p` создать каталог между двумя существующими. (mkdir -p path/to/dir создаст новый каталог «to».)\
+`-m` установит права доступа к файлам. (создать каталог с полными правами для всех пользователей, mkdir -m777 имя_каталога)\
+`-v` распечатать сообщение для каждой созданной директории.
 
-df (command) report the system’s disk space usage, shown in percentage and kilobyte (KB)\
-   df [options] [file]\
-   -h human-readable format\
-   -m displays information on the file system usage in MBs.\
-   -k displays file system usage in KBs.\
-   -T shows the file system type in a new column.\
+---
 
-du (command) to check how much space a file or a directory takes up\
-   du /path/to/dir\
-   -s offers the total size of a specified folder.\
-   -m provides folder and file information in MB\
-   -k displays information in KB.\
-   -h informs the last modification date of the displayed folders and files.\
+### rmdir
+удалить пустой каталог.
 
-head (command) to view the first ten lines of a text\
-   head [option] [file]\
-   -n prints the first customized number of lines.\
-   -c prints the first customized number of bytes of each file.\
-   -q will not print headers specifying the file name.\
+`rmdir -p dir/subdir` удалит пустую **subdir** и родительскую директорию **dir**
 
-tail (command) displays the last ten lines of a file\
-   tail [option] [file]\
-   tail -n colors.txt\
+---
 
-diff (command) compares two contents of a file line by line. display the parts that do not match
-   diff [option] file1 file2
-   diff note.txt note_update.txt
-   -c displays the difference between two files in a context form.
-   -u displays the output without redundant information.
-   -i makes the diff command case insensitive.
+### rm
+удалить файлы в директории.
 
-tar (command) archives multiple files into a TAR file
-   tar [options] [archive_file] [file or directory to be archived]
-   tar -cvf newarchive.tar /home/user/Documents
-   -x extracts a file.
-   -t lists the content of a file.
-   -u archives and adds to an existing archive file.
+`rm f1 f2 f3` удалит **f1 f2 f3** в текущей директории\
+`-i` запрашивает системное подтверждение перед удалением файла.\ 
+`-f` позволяет системе удалить файл без подтверждения.\
+`-r` рекурсивно удалит файлы и каталоги.
 
-chmod (command) modifies a file or directory’s read, write, and execute permissions.
-   chmod [option] [permission] [file_name]
-   chmod 777 note.txt
-   -c displays information when a change is made.
-   -f suppresses the error messages.
-   -v displays a diagnostic for each processed file.
+### touch 
+создать пустой файл или сгенерировать/изменить timestamp метку\
+`touch /path/to/file.txt`
 
-chown (command) change the ownership of a file, directory, or symbolic link to a specified username.
-   chown [option] owner[:group] file(s)
-   chown linuxuser2 filename.txt
+---
 
-jobs (command) will display all the running processes along with their statuses\
-   jobs [options] jobID
-   -l lists process IDs along with their information.
-   -n lists jobs whose statuses have changed since the last notification.
-   -p lists process IDs only.
+### locate 
+найти файл в базе данных системы.
 
-kill (command) terminate an unresponsive program manually
-   ps ux (commnd) return process identification number (PID)
-   kill [signal_option] PID
-   kill SIGKILL 63773
-   SIGTERM requests a program to stop running and gives it some time to save all of its progress. The system will use this by default if you don’t specify the signal when entering the kill command.
-   SIGKILL forces programs to stop, and you will lose unsaved progress.
+**locate -i school*not**\
+`-i` выключит чувствительность к регистру\
+`*` ищет контент содержащий два или более слов
 
-ping (command) checking whether a network or a server is reachable
-   ping [option] [hostname_or_IP_address]
-   ping google.com
+---
+
+### find 
+поиск файлов в определенном каталоге и выполнение последующих операций.
+
+`find [option] [path] [expression]`\
+`find -name filename.txt`\
+`find ./ -type d -name dirname`
+
+---
+
+### grep
+позволяет найти слово, просматривая весь текст в определенном файле.
+
+`grep blue notepad.txt`
+
+---
+
+### df 
+отчет об использовании дискового пространства системы, показанный в процентах и килобайтах.
+
+`df [options] [file]`\
+`-h` human-readable format\
+`-m` displays information on the file system usage in MBs.\
+`-k` displays file system usage in KBs.\
+`-T` shows the file system type in a new column.\
+
+---
+
+### du
+чтобы проверить, сколько места занимает файл или каталог.
+
+`du /path/to/dir`\
+`-s` предлагает общий размер указанной папки.\
+`-m` предоставляет информацию о папках и файлах в МБ\
+`-k` отображает информацию в КБ.\
+`-h` сообщает дату последнего изменения отображаемых папок и файлов.
+
+---
+
+### head
+для просмотра первых десяти строк текста.
+
+`head [option] [file]`\
+`-n` печатать первое настроенное количество строк.\
+`-c` печатать первое настроенное количество байтов каждого файла.\
+`-q` не будет печатать заголовки с указанием имени файла.
+
+---
+
+### tail
+отображает последние десять строк файла.
+
+`tail [option] [file]`\
+`tail -n colors.txt`\
+
+---
+
+### diff
+сравнивает содержимое двуж файлов построчно. показывает части, которые не совпадают.
+
+`diff [option] file1 file2`\
+`diff note.txt note_update.txt`\
+`-c` отображает разницу между двумя файлами в контекстной форме.\
+`-u` отображает вывод без избыточной информации.\
+`-i` делает команду **diff** нечувствительной к регистру.
+
+---
+
+### tar
+архивирует несколько файлов в файл **tar**.
+
+`tar [options] [archive_file] [file or directory to be archived]`\
+`tar -cvf archive.tar /home/user/Documents`\
+`-x` извлечь файл\
+`-t` перечисляет содержимое файла.\
+`-u` архивировать и добавить к существующему файлу архива.
+
+---
+
+### zip
+архивирует несколько файлов в файл **zip**.
+
+`zip [options] zipfile file1 file2…`\
+`zip archive.zip note.txt`\
+`unzip [option] file_name.zip`\
+`unzip archive.zip`
+
+---
+
+### chmod
+изменяет права на чтение, запись и выполнение файла или каталога.
+
+`chmod [option] [permission] [file_name]`\
+`chmod 777 note.txt`\
+`-c` отображает информацию при внесении изменений.\
+`-f` подавляет сообщения об ошибках.\
+`-v` отображает диагностику для каждого обрабатываемого файла.
+
+### chown 
+изменить владельца файла, каталога или символической ссылки на указанное имя пользователя.
+
+`chown [option] owner[:group] file(s)`\
+`chown linuxuser2 filename.txt`
+
+---
+
+### jobs
+отобразит все запущенные процессы вместе с их статусами.
+
+`jobs [options] jobID`\
+`-l` перечислить идентификаторы процессов вместе с их информацией.\
+`-n` перечислить задания, статусы которых изменились с момента последнего уведомления.\
+`-p` перечислить только идентификаторы процессов.
+
+---
+
+### kill
+завершить не отвечающую программу вручную.
+
+`ps ux (commnd)` вернет идентификаторы процессов (PID)\
+`kill [signal_option] PID`\
+`kill SIGKILL 63773`\
+`SIGTERM` (default) запрашивает остановку программы и дает ей некоторое время для сохранения всего ее прогресса.\
+`SIGKILL` принудительно останавливает программы, и вы потеряете несохраненный прогресс.
+
+---
+
+### ping
+проверка доступности сети или сервера.
+
+`ping [option] [hostname_or_IP_address]`\
+`ping google.com`
+
+---
+
+### wget
+позволяет загружать файлы из интернета. Он работает в фоновом режиме, не мешая другим запущенным процессам.
+
+`wget [option] [url]`\
+`wget https://wordpress.org/latest.zip`
+
+---
+
+### uname 
+распечатать подробную информацию о системе и оборудовании.
+
+`uname [option]`\
+`-a` распечатать всю системную информацию.\
+`-s` распечатать имя ядра.\
+`-n` распечатать имя хоста узла системы.
+
+---
+
+### htop
+отображать все запущенные процессы и динамическое представление текущей системы в реальном времени.
+
+`-d` показать задержку между обновлениями в десятых долях секунды.\
+`-C` включает монохромный режим.\
+`-h` отображает справочное сообщение и завершает работу.
+
+---
+
+### history
+список до 500 ранее выполненных команд, что позволяет повторно использовать их без повторного ввода.
+
+`history [option]`\
+`-c` очищает весь список истории.\
+`-d` **offset** удаляет запись истории в позиции OFFSET.\
+`-a` appends history lines.
+
+### man
+предоставляет руководство пользователя по любым командам или утилитам.
+
+`man [option] [command_name]`
+
+---
+
+### echo
+отображает строку используя стандартный вывод.
+
+`echo [option] [string]`\
+`-n` отображает вывод без завершающей новой строки.\
+`-e` включает интерпретацию следующих экранов обратной косой черты\
+`\a` воспроизводит звуковое оповещение\
+`\b` удаляет пробелы между текстом\
+`\c` не производит дальнейшего вывода.\
+`-E` отображает параметр по умолчанию и отключает экранирования обратной косой черты.
+
+---
+
+### hostname
+команда, чтобы узнать имя хоста системы.
+
+`hostname [option]`\
+`-a` отображает псевдоним хоста.\
+`-A` отображает полное доменное имя машины (FQDN)\
+`-i` отображает IP-адрес машины
+
+---
+
+### useradd/userdel 
+используется для создания новой учетной записи, команда passwd позволяет добавить пароль.
+
+`useradd [option] username`\
+`passwd password`\
+`userdel username`
+
+---
+
+### alias/unalias
+создать ярлык с той же функциональностью что и команда имя файла или текст.
+
+`alias Name=String`\
+`alias k=’kill’`\
+`unalias [alias_name]`
+
+---
+
+### su
+запустить программу от имени другого пользователя.
+
+`su [options] [username [argument]]`\
+`-p` сохраняет ту же среду оболочки, состоящую из HOME, SHELL, USER и LOGNAME.\
+`-s` позволяет указать другую среду оболочки для запуска.\
+`-l` запускает сценарий входа для переключения на другое имя пользователя. (требуется пароль)
+
+---
+
+### ps 
+создает снимок всех запущенных процессов в вашей системе.
+
+`PID` уникальный id процесса\
+`TTY` тип терминала\
+`TIME` время работы\
+`CMD` комманда запускающая процесс\
+`-T` отобразить все процессы, связанные с текущим сеансом оболочки.\
+`-u` перечисляет процессы, связанные с конкретным пользователем.\
+`-A` показывает все запущенные процессы.
+
+---
+
