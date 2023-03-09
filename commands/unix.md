@@ -360,3 +360,9 @@
 `nslookup google.com` 
 
 ---
+
+### lsof
+показать список прослушиаамых портов в системе
+
+`sudo lsof -PiTCP -sTCP:LISTEN`
+`netstat -anvp tcp | awk 'NR<3 || /LISTEN/'`
