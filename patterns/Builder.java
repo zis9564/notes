@@ -1,5 +1,4 @@
-
-public class Computer {
+class Computer {
     private String HDD;
     private String RAM;
     //optional
@@ -18,7 +17,7 @@ public class Computer {
         this.isBluetoothEnabled=builder.isBluetoothEnabled;
     }
     
-    public static class ComputerBuilder{
+    public static class ComputerBuilder {
         private String HDD;
         private String RAM;
         //optional
