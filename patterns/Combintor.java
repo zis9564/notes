@@ -2,23 +2,19 @@ public interface Combinator extends Function<Person, Status> {
 
     //vlidation field name
     static Combinator isNameCorrect() {
-        return person -> person.getName().length() > 2 ?
-                CORRECT : NAME_IS_NOT_CORRECT;
+        return person -> person.getName().length() > 2 ? CORRECT : NAME_IS_NOT_CORRECT;
     }
     //vlidation field phone
     static Combinator isPhoneCorrect() {
-        return person -> person.getPhone().contains("+") ?
-                CORRECT : PHONE_NOT_CORRECT;
+        return person -> person.getPhone().contains("+") ? CORRECT : PHONE_NOT_CORRECT;
     }
     //vlidation field email
     static Combinator isEmailCorrect() {
-        return person -> person.getEmail().contains("@") ?
-                CORRECT : EMAIL_NOT_CORRECT;
+        return person -> person.getEmail().contains("@") ? CORRECT : EMAIL_NOT_CORRECT;
     }
     //vlidation field birthDate
     static Combinator isAdult() {
-        return person -> Period.between(person.getBirthDate(), LocalDate.now()).getYears() > 18 ?
-                CORRECT : IS_NOT_ADULT;
+        return person -> Period.between(person.getBirthDate(), LocalDate.now()).getYears() > 18 ? CORRECT : IS_NOT_ADULT;
     }
 
     //Combinator implementtion

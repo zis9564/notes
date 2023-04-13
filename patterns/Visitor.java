@@ -1,9 +1,9 @@
 
-public interface ItemElement {
+interface ItemElement {
     public int accept(ShoppingCartVisitor visitor);
 }
 
-public class Book implements ItemElement {
+class Book implements ItemElement {
     private int price;
     private String isbnNumber;
 
@@ -23,7 +23,7 @@ public class Book implements ItemElement {
     }
 }
 
-public class Fruit implements ItemElement {
+class Fruit implements ItemElement {
     private int pricePerKg;
     private int weight;
     private String name;
@@ -48,13 +48,13 @@ public class Fruit implements ItemElement {
     }
 }
 
-public interface ShoppingCartVisitor {
+interface ShoppingCartVisitor {
 
     int visit(Book book);
     int visit(Fruit fruit);
 }
 
-public class ShoppingCartVisitorImpl implements ShoppingCartVisitor {
+class ShoppingCartVisitorImpl implements ShoppingCartVisitor {
     @Override
     public int visit(Book book) {
         int cost=0;
@@ -73,7 +73,7 @@ public class ShoppingCartVisitorImpl implements ShoppingCartVisitor {
     }
 }
 
-public class ShoppingCartClient {
+class ShoppingCartClient {
     public static void main(String[] args) {
         ItemElement[] items = new ItemElement[]{new Book(20, "1234"),new Book(100, "5678"),
                 new Fruit(10, 2, "Banana"), new Fruit(5, 5, "Apple")};

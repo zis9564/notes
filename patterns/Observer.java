@@ -1,4 +1,4 @@
-public interface Subject {
+interface Subject {
 
     //methods to register and unregister observers
     public void register(Observer obj);
@@ -10,7 +10,7 @@ public interface Subject {
 
 }
 
-public interface Observer {
+interface Observer {
 
     //method to update the observer, used by subject
     public void update();
@@ -18,7 +18,7 @@ public interface Observer {
     public void setSubject(Subject sub);
 }
 
-public class MyTopic implements Subject {
+class MyTopic implements Subject {
 
     private List<Observer> observers;
     private String message;
@@ -56,7 +56,6 @@ public class MyTopic implements Subject {
         for (Observer obj : observersLocal) {
             obj.update();
         }
-
     }
 
     @Override
@@ -73,7 +72,7 @@ public class MyTopic implements Subject {
     }
 }
 
-public class MyTopicSubscriber implements Observer {
+class MyTopicSubscriber implements Observer {
 
     private String name;
     private Subject topic;
@@ -94,10 +93,9 @@ public class MyTopicSubscriber implements Observer {
     public void setSubject(Subject sub) {
         this.topic=sub;
     }
-
 }
 
-public class ObserverPatternTest {
+class ObserverPatternTest {
 
     public static void main(String[] args) {
         //create subject
@@ -124,5 +122,9 @@ public class ObserverPatternTest {
         //now send message to subject
         topic.postMessage("New Message");
     }
+}
 
+class ObserverPatternMain {
+    public static void main(String[] args) {
+    }
 }
