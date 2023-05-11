@@ -366,3 +366,8 @@
 
 `sudo lsof -PiTCP -sTCP:LISTEN`
 `netstat -anvp tcp | awk 'NR<3 || /LISTEN/'`
+
+### mvn install
+установить зависимость в проект вручную
+
+`mvn install:install-file -Dfile=/path/to/jar/file-name.jar` запускать в директории проекта
