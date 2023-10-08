@@ -28,9 +28,9 @@ class SavingAccount extends Account {
 }
 
 class AccountCache {
-    public static Map<String, Account> accountCacheMap =
-            new HashMap<>();
-    static{
+    public static Map<String, Account> accountCacheMap = new HashMap<>();
+
+    static {
         Account currentAccount = new CurrentAccount();
         Account savingAccount = new SavingAccount();
         accountCacheMap.put("CURRENT", currentAccount);
